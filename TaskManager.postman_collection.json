@@ -1,0 +1,164 @@
+{
+	"variables": [],
+	"info": {
+		"name": "TaskManager",
+		"_postman_id": "f6bc9c7b-0632-9bce-53d6-08878ba20547",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllTasks",
+			"request": {
+				"url": "localhost:3000/tasks",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Lists out all tasks."
+			},
+			"response": []
+		},
+		{
+			"name": "getAllUsers",
+			"request": {
+				"url": "localhost:3000/users",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Lists out all Users."
+			},
+			"response": []
+		},
+		{
+			"name": "createTask",
+			"request": {
+				"url": "localhost:3000/tasks",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"completed\": \"false\",\n       \"description\": \"Eat lunch again\"\n     \n    }"
+				},
+				"description": "Lists out all tasks."
+			},
+			"response": []
+		},
+		{
+			"name": "createUser",
+			"request": {
+				"url": "localhost:3000/users",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"age\": 0,\n        \"name\": \"Sushil\",\n        \"email\": \"pandey.sushilhlife@gmail.com\",\n        \"password\": \"phone098!\"}"
+				},
+				"description": "Lists out all tasks."
+			},
+			"response": []
+		},
+		{
+			"name": "updateTask",
+			"request": {
+				"url": "localhost:3000/tasks/5db730a2d3a57c2e582d73b4",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"completed\": \"false\",\n       \"description\": \"updated Eat Lunch\"\n     \n    }"
+				},
+				"description": "Update Out a Task."
+			},
+			"response": []
+		},
+		{
+			"name": "updateUser",
+			"request": {
+				"url": "localhost:3000/users/5db732eb3fd5b92f84017ee6",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"age\": 0,\n    \"name\": \"Sushil\",\n    \"email\": \"pandey.sushilhlife@gmail.com\",\n    \"password\": \"Lyjnyc@2019\"\n}"
+				},
+				"description": "Update Out a Task."
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUser",
+			"request": {
+				"url": "localhost:3000/users/5db732eb3fd5b92f84017ee6",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"age\": 0,\n    \"name\": \"Sushil\",\n    \"email\": \"pandey.sushilhlife@gmail.com\",\n    \"password\": \"Lyjnyc@2019\"\n}"
+				},
+				"description": "Update Out a Task."
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTask",
+			"request": {
+				"url": "localhost:3000/tasks/5db730a2d3a57c2e582d73b4",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"completed\": \"false\",\n       \"description\": \"updated Eat Lunch\"\n     \n    }"
+				},
+				"description": "Delete Out a Task."
+			},
+			"response": []
+		},
+		{
+			"name": "getTask",
+			"request": {
+				"url": "localhost:3000/tasks/5db730a2d3a57c2e582d73b4",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Lists out Task by ID."
+			},
+			"response": []
+		}
+	]
+}
