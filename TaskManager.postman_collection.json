@@ -6,153 +6,21 @@
 	},
 	"item": [
 		{
-			"name": "All Tasks",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{url}}/tasks",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"tasks"
-					]
-				},
-				"description": "Lists out all tasks."
-			},
-			"response": []
-		},
-		{
-			"name": "Read Task",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{url}}/tasks/5ea3e33d0897c14c04d7bff6",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"tasks",
-						"5ea3e33d0897c14c04d7bff6"
-					]
-				},
-				"description": "Lists out Task by ID."
-			},
-			"response": []
-		},
-		{
-			"name": "New Task",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n        \"completed\": \"false\",\n       \"description\": \"Eat lunch again\"\n     \n    }"
-				},
-				"url": {
-					"raw": "{{url}}/tasks",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"tasks"
-					]
-				},
-				"description": "Lists out all tasks."
-			},
-			"response": []
-		},
-		{
-			"name": "Update Task",
-			"request": {
-				"method": "PATCH",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n        \"completed\": \"false\",\n       \"description\": \"updated Eat Lunch\"\n     \n    }"
-				},
-				"url": {
-					"raw": "{{url}}/tasks/5db730a2d3a57c2e582d73b4",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"tasks",
-						"5db730a2d3a57c2e582d73b4"
-					]
-				},
-				"description": "Update Out a Task."
-			},
-			"response": []
-		},
-		{
-			"name": "Delete Task",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n        \"completed\": \"false\",\n       \"description\": \"updated Eat Lunch\"\n     \n    }"
-				},
-				"url": {
-					"raw": "{{url}}/tasks/5db730a2d3a57c2e582d73b4",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"tasks",
-						"5db730a2d3a57c2e582d73b4"
-					]
-				},
-				"description": "Delete Out a Task."
-			},
-			"response": []
-		},
-		{
-			"name": "Current User",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWEzZWQ2NzNlMjJjZTUwOTQxNTliMDEiLCJpYXQiOjE1ODc4MTM3NDh9.wn_CaLDGxwVBVJd1VjEuwJUOnqSSgPXZfzmzHWtUfv0",
-						"type": "text",
-						"disabled": true
-					}
-				],
-				"url": {
-					"raw": "{{url}}/users/me",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"users",
-						"me"
-					]
-				},
-				"description": "Lists out all Users."
-			},
-			"response": []
-		},
-		{
 			"name": "Create User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f4afa511-e6c6-4d6b-8c39-241fd256b124",
+						"exec": [
+							"if(pm.response.code===201){",
+							"    pm.environment.set('authToken',pm.response.json().token)",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [
@@ -163,7 +31,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"age\": 30,\n        \"name\": \"Sushil\",\n        \"email\": \"sushil.pandey@axus.com\",\n        \"password\": \"phone098!\"}\n        "
+					"raw": "{\t\t\"age\": 26,\n        \"name\": \"Preeti\",\n        \"email\": \"pandey.preeti@hotmail.com\",\n        \"password\": \"phone098!!\"\n\n}\n        "
 				},
 				"url": {
 					"raw": "{{url}}/users",
@@ -204,7 +72,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"email\": \"ramanmarch22@gmail.com\",\n        \"password\": \"phone098!\"\n        }"
+					"raw": "{\"age\": 30,\n        \"name\": \"Sushil\",\n        \"email\": \"pandey.sushil@hotmail.com\",\n        \"password\": \"phone098!!\"}\n        "
 				},
 				"url": {
 					"raw": "{{url}}/users/login",
@@ -221,6 +89,180 @@
 			"response": []
 		},
 		{
+			"name": "User Logout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0521f456-2c4f-4ce0-9f43-c926fdd8041e",
+						"exec": [
+							"if(pm.response.code===200){",
+							"    pm.environment.set('authToken','')",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"ramanmarch22@gmail.com\",\n        \"password\": \"phone098!\"\n        }"
+				},
+				"url": {
+					"raw": "{{url}}/users/logout",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"logout"
+					]
+				},
+				"description": "Lists out all tasks."
+			},
+			"response": []
+		},
+		{
+			"name": "User Logout All",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7945620a-2c79-40bd-a871-816930cad3bb",
+						"exec": [
+							"if(pm.response.code===200){",
+							"    pm.environment.set('authToken','')",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"ramanmarch22@gmail.com\",\n        \"password\": \"phone098!\"\n        }"
+				},
+				"url": {
+					"raw": "{{url}}/users/logoutAll",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"logoutAll"
+					]
+				},
+				"description": "Lists out all tasks."
+			},
+			"response": []
+		},
+		{
+			"name": "Create Task",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"completed\": \"false\",\n       \"description\": \"Cook Food\"\n     \n    }"
+				},
+				"url": {
+					"raw": "{{url}}/tasks",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"tasks"
+					]
+				},
+				"description": "Lists out all tasks."
+			},
+			"response": []
+		},
+		{
+			"name": "Current User",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWEzZWQ2NzNlMjJjZTUwOTQxNTliMDEiLCJpYXQiOjE1ODc4MTM3NDh9.wn_CaLDGxwVBVJd1VjEuwJUOnqSSgPXZfzmzHWtUfv0",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{url}}/users/me",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"me"
+					]
+				},
+				"description": "Lists out all Users."
+			},
+			"response": []
+		},
+		{
+			"name": "Read Tasks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/tasks",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"tasks"
+					]
+				},
+				"description": "Lists out all tasks."
+			},
+			"response": []
+		},
+		{
+			"name": "Read Task",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/tasks/5ea45eb8a9141174f8be972e",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"tasks",
+						"5ea45eb8a9141174f8be972e"
+					]
+				},
+				"description": "Lists out Task by ID."
+			},
+			"response": []
+		},
+		{
 			"name": "Update User",
 			"request": {
 				"method": "PATCH",
@@ -232,16 +274,44 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"age\": 0,\n        \"name\": \"Sushil\",\n        \"email\": \"pandey.sushil@gmail.com\",\n        \"password\": \"Lyjnyc@2020\"}\n        "
+					"raw": "{\"age\": 30,\n        \"name\": \"Sushil\",\n        \"email\": \"pandey.sushil@gmail.com\",\n        \"password\": \"Lyjnyc@2020\"}\n        "
 				},
 				"url": {
-					"raw": "{{url}}/users/5ea3e7f9e2e2a84db251a7ea",
+					"raw": "{{url}}/users/me",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"users",
-						"5ea3e7f9e2e2a84db251a7ea"
+						"me"
+					]
+				},
+				"description": "Update Out a Task."
+			},
+			"response": []
+		},
+		{
+			"name": "Update Task",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"completed\": \"false\",\n       \"description\": \"updated Eat Lunch\"\n     \n    }"
+				},
+				"url": {
+					"raw": "{{url}}/tasks/5db730a2d3a57c2e582d73b4",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"tasks",
+						"5db730a2d3a57c2e582d73b4"
 					]
 				},
 				"description": "Update Out a Task."
@@ -260,19 +330,47 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"age\": 0,\n    \"name\": \"Sushil\",\n    \"email\": \"pandey.sushilhlife@gmail.com\",\n    \"password\": \"Lyjnyc@2019\"\n}"
+					"raw": ""
 				},
 				"url": {
-					"raw": "{{url}}/users/5db732eb3fd5b92f84017ee6",
+					"raw": "{{url}}/users/me",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"users",
-						"5db732eb3fd5b92f84017ee6"
+						"me"
 					]
 				},
 				"description": "Update Out a Task."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Task",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/tasks/5ea4583ed743c671ab28fbd2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"tasks",
+						"5ea4583ed743c671ab28fbd2"
+					]
+				},
+				"description": "Delete Out a Task."
 			},
 			"response": []
 		}
