@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
-
+const jwt=require('jsonwebtoken')
 const userSchema= new mongoose.Schema({
     name: {
         type: String,
@@ -38,8 +38,40 @@ const userSchema= new mongoose.Schema({
                 throw new Error('Age must be a postive number')
             }
         }
+    },
+    tokens:[{
+        token: {
+            type: String,
+            required: true
+        }
     }
+       
+    ]
 })
+
+userSchema.methods.toJSON= function(){
+    const user = this
+    const userObject = user.toObject()
+
+    delete userObject.password
+    delete userObject.tokens
+
+    return userObject
+
+}
+
+userSchema.methods.generateAuthToken= async function(){ // not lambda as had to use this for object.
+    const user=this
+    //console.log("User loggin", user);
+    
+    const token = jwt.sign({_id: user._id.toString()},'secret')
+    user.tokens= user.tokens.concat({token})
+    await user.save()
+
+    return token
+
+
+}
 
 //Adding method findby Credentials
 userSchema.statics.findByCredentials= async(email, password)=>{

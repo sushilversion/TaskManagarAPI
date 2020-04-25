@@ -1,0 +1,4 @@
+Format: head.payload.signature  (Base64Encoded)
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.
+eyJfaWQiOiIxMjMiLCJpYXQiOjE1ODc4MDIyNTR9.
+JMlwiTJ0o9bCvcuqB4qH4ZGBAy9x5OxwFjtwKN1LTI8
