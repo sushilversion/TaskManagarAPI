@@ -48,6 +48,8 @@ const userSchema= new mongoose.Schema({
     }
        
     ]
+},{
+    timestamps:true
 })
 // Settting up Virtual relationship with Tasks using local and forignfields
 userSchema.virtual('tasks',{

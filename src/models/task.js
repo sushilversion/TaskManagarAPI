@@ -15,6 +15,8 @@ const taskSchema=new mongoose.Schema({
         required:true,
         ref:'User' 
     }
+},{
+    timestamps:true
 })
 // add any middleware code onto above scheama, eg, pre, validator
 const Task = mongoose.model('Task', taskSchema)
