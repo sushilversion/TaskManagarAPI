@@ -231,12 +231,22 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/tasks",
+					"raw": "{{url}}/tasks?limit=20&sortBy=createdAt:asc",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"tasks"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "20"
+						},
+						{
+							"key": "sortBy",
+							"value": "createdAt:asc"
+						}
 					]
 				},
 				"description": "Lists out all tasks."
@@ -274,7 +284,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"age\": 30,\n        \"name\": \"Sushil\",\n        \"email\": \"pandey.sushil@gmail.com\",\n        \"password\": \"Lyjnyc@2020\"}\n        "
+					"raw": "\t\t{\"age\": 30,\n        \"name\": \"Sushil Pandey\",\n        \"email\": \"pandey.sushil@gmail.com\",\n        \"password\": \"Lyjnyc@2020\"}\n        "
 				},
 				"url": {
 					"raw": "{{url}}/users/me",
