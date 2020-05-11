@@ -226,6 +226,107 @@
 			"response": []
 		},
 		{
+			"name": "Current User Avatar",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWEzZWQ2NzNlMjJjZTUwOTQxNTliMDEiLCJpYXQiOjE1ODc4MTM3NDh9.wn_CaLDGxwVBVJd1VjEuwJUOnqSSgPXZfzmzHWtUfv0",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{url}}/users/5ea5d4c9ca2f56a5055033d6/avatar",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"5ea5d4c9ca2f56a5055033d6",
+						"avatar"
+					]
+				},
+				"description": "Lists out all Users."
+			},
+			"response": []
+		},
+		{
+			"name": "Upload Avatar",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWEzZWQ2NzNlMjJjZTUwOTQxNTliMDEiLCJpYXQiOjE1ODc4MTM3NDh9.wn_CaLDGxwVBVJd1VjEuwJUOnqSSgPXZfzmzHWtUfv0",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "avatar",
+							"type": "file",
+							"src": "/Users/sushilpandey/Downloads/aeroHealth-release.apk"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/users/me/avatar",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"me",
+						"avatar"
+					]
+				},
+				"description": "Lists out all Users."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Avatar",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWEzZWQ2NzNlMjJjZTUwOTQxNTliMDEiLCJpYXQiOjE1ODc4MTM3NDh9.wn_CaLDGxwVBVJd1VjEuwJUOnqSSgPXZfzmzHWtUfv0",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "avatar",
+							"type": "file",
+							"src": "/Users/sushilpandey/Downloads/aeroHealth-release.apk"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/users/me/avatar",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"me",
+						"avatar"
+					]
+				},
+				"description": "Lists out all Users."
+			},
+			"response": []
+		},
+		{
 			"name": "Read Tasks",
 			"request": {
 				"method": "GET",
